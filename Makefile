@@ -1,10 +1,10 @@
 .PHONY: all clean
 
-PROTO_DIR := .\api
+PROTO_DIR := ./api
 PROTO_FILES := $(PROTO_DIR)\book.proto
 
-GO_OUT_DIR := .\pkg
-GO_OUT_FILES := $(GO_OUT_DIR)\*
+GO_OUT_DIR := ./pkg
+GO_OUT_FILES := $(GO_OUT_DIR)
 
 all: $(GO_OUT_FILES)
 

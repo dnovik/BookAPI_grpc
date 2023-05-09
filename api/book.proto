@@ -5,7 +5,7 @@ import "google/protobuf/empty.proto";
 
 package bookapi;
 
-option go_package = "github.com/ваш_путь/pkg";
+option go_package = "https://github.com/dnovik/BookAPI_grpc/pkg";
 
 message Book {
   google.protobuf.Int64Value id = 1;
