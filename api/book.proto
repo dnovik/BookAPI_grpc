@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+
+package bookapi;
+
+option go_package = "github.com/ваш_путь/pkg";
+
+message Book {
+  google.protobuf.Int64Value id = 1;
+  string name = 2;
+  google.protobuf.Int32Value publisher_id = 3;
+  repeated google.protobuf.Int32Value author_ids = 4;
+  repeated google.protobuf.Int32Value genre_ids = 5;
+}
+
+message Author {
+  google.protobuf.Int64Value id = 1;
+  string name = 2;
+  string nationality = 3;
+}
+
+message Genre {
+  google.protobuf.Int64Value id = 1;
+  string name = 2;
+}
+
+service BookService {
+  rpc CreateBook(Book) returns (Book) {}
+  rpc ReadBook(google.protobuf.Int64Value) returns (Book) {}
+  rpc UpdateBook(Book) returns (Book) {}
+  rpc DeleteBook(google.protobuf.Int64Value) returns (google.protobuf.Empty) {}
+
+  rpc CreateAuthor(Author) returns (Author) {}
+  rpc ReadAuthor(google.protobuf.Int64Value) returns (Author) {}
+  rpc UpdateAuthor(Author) returns (Author) {}
+  rpc DeleteAuthor(google.protobuf.Int64Value) returns (google.protobuf.Empty) {}
+
+  rpc CreateGenre(Genre) returns (Genre) {}
+  rpc ReadGenre(google.protobuf.Int64Value) returns (Genre) {}
+  rpc UpdateGenre(Genre) returns (Genre) {}
+  rpc DeleteGenre(google.protobuf.Int64Value) returns (google.protobuf.Empty) {}
+}
